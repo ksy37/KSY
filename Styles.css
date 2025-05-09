@@ -1,0 +1,138 @@
+/* 1. Theme Variables */
+:root {
+  --bg: #000000;
+  --card-bg: #ffffffe7;
+  --primary: #1d867e;
+  --secondary:  ##1d867e;
+  --text: #000000;
+  --accent: #1dd3d3;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Candara', sans-serif;
+  --gap: 1.5rem;
+}
+
+/* 2. Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap');
+
+/* 3. Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-body);
+  background-color:var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: var(--gap);
+}
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--accent);
+}
+
+/* 4. Header */
+header {
+  display: flex;                /* Flex centering */ 
+  flex-direction: column;
+  align-items: center;
+  justify-content: is-between;
+  background: var(--primary);
+  color: white;
+  padding: calc(var(--gap) * 2);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* 5. Section Cards */
+section {
+  background: var(--card-bg);
+  margin-top: var(--gap);
+  padding: var(--gap);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 0.5rem;
+}
+
+/* 6. Skills & Projects Grid */
+#skills ul,
+#projects ul {
+  display: flex;
+  flex-wrap: wrap;              /* Flex items wrap */ 
+  gap: var(--gap);
+  list-style: none;
+}
+#skills li,
+#projects li {
+  flex: 1 1 calc(33% - var(--gap));  /* Three columns */ 
+  background: var(--card-bg);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+#skills:hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(-10px);
+  box-shadow: 0 4px 12px rgba(117, 117, 117, 0.1);
+}
+#projects h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
+}
+#projects:hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(-10px);
+  box-shadow: 0 4px 12px rgba(117, 117, 117, 0.1);
+}
+
+/* 7. Contact Links */
+#contact p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+#contact:hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(-10px);
+  box-shadow: 0 4px 12px rgba(117, 117, 117, 0.1);
+}
+
+/* 8. Responsive Breakpoints */
+@media (max-width: 768px) {       /* Tablet */ 
+  #skills li,
+  #projects li {
+    flex: 1 1 calc(50% - var(--gap));
+  }
+}
+@media (max-width: 480px) {       /* Mobile */ 
+  #skills li,
+  #projects li {
+    flex: 1 1 100%;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+}
